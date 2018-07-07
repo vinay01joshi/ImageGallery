@@ -15,6 +15,9 @@ namespace SpacialSymbol.IDP
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            // To Enable IDS4 UI
+            services.AddMvc();
+
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddTestUsers(Config.GetUsers())
@@ -31,6 +34,10 @@ namespace SpacialSymbol.IDP
             }
 
             app.UseIdentityServer();
+
+            // TO Enable IDS4 UI
+            app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
         }
     }
 }
