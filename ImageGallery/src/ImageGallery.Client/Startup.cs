@@ -40,7 +40,8 @@ namespace ImageGallery.Client
                  options.SignInScheme = "Cookies";
                  options.Authority = "https://localhost:44326";
                  options.ClientId = "imagegalleryclient";
-                 options.ResponseType = "code id_token";            
+                 options.ResponseType = "code id_token";
+                 //options.SignedOutCallbackPath = new PathString("");
                  options.Scope.Add("openid");
                  options.Scope.Add("profile");
                  options.SaveTokens = true;

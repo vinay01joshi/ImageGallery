@@ -63,7 +63,11 @@ namespace SpacialSymbol.IDP
                     RedirectUris = new List<string>()
                     {
                         "https://localhost:44343/signin-oidc"
-                    },                  
+                    },
+                    PostLogoutRedirectUris = new List<string>
+                    {
+                         "https://localhost:44343/signout-callback-oidc"
+                    },
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
