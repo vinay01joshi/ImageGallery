@@ -183,6 +183,7 @@ namespace ImageGallery.Client.Controllers
         public async Task Logout()
         {
             await HttpContext.SignOutAsync("Cookies");
+            await HttpContext.SignOutAsync("oidc");
         }
     }
 }
