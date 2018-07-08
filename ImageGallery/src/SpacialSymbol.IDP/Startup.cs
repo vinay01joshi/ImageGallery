@@ -21,8 +21,9 @@ namespace SpacialSymbol.IDP
             services.AddIdentityServer()
                 .AddDeveloperSigningCredential()
                 .AddTestUsers(Config.GetUsers())
-                .AddInMemoryIdentityResources(Config.GetIdentityResources())
-                .AddInMemoryClients(Config.GetClients());
+                .AddInMemoryClients(Config.GetClients())
+                .AddInMemoryIdentityResources(Config.GetIdentityResources());
+     
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
