@@ -7,6 +7,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.IdentityModel.Tokens;
+using IdentityModel;
 
 namespace ImageGallery.Client
 {
@@ -58,6 +60,12 @@ namespace ImageGallery.Client
                  //options.ClaimActions.DeleteClaim("address");
 
                  options.ClaimActions.MapUniqueJsonKey("role", "role");
+
+                 options.TokenValidationParameters = new TokenValidationParameters
+                 {
+                     NameClaimType = JwtClaimTypes.GivenName,
+                     RoleClaimType = JwtClaimTypes.Role,
+                 };
              });
         }
 
