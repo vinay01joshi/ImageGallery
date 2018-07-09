@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.AspNetCore.Authentication;
 
 namespace ImageGallery.Client
 {
@@ -49,6 +50,9 @@ namespace ImageGallery.Client
                  options.SaveTokens = true;
                  options.ClientSecret = "secret";
                  options.GetClaimsFromUserInfoEndpoint = true;
+                 options.ClaimActions.Remove("amr");
+                 options.ClaimActions.DeleteClaim("sid");
+                 options.ClaimActions.DeleteClaim("idp");
              });
         }
 
