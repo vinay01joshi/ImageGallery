@@ -25,6 +25,7 @@ namespace SpacialSymbol.IDP
                     {
                         new Claim("given_name", "Frank"),
                         new Claim("family_name", "Underwood"),
+                        new Claim("address","Main road 1")
                     }
                 },
                 new TestUser
@@ -37,6 +38,7 @@ namespace SpacialSymbol.IDP
                     {
                         new Claim("given_name", "Claire"),
                         new Claim("family_name", "Underwood"),
+                        new Claim("address" ,"Big Street 2")
                     }
                 }
             };
@@ -47,7 +49,8 @@ namespace SpacialSymbol.IDP
             return new List<IdentityResource>
             {
                 new IdentityResources.OpenId(),
-                new IdentityResources.Profile()
+                new IdentityResources.Profile(),
+                new IdentityResources.Address()
             };
         }
 
@@ -71,7 +74,8 @@ namespace SpacialSymbol.IDP
                     AllowedScopes =
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
-                        IdentityServerConstants.StandardScopes.Profile
+                        IdentityServerConstants.StandardScopes.Profile,
+                        IdentityServerConstants.StandardScopes.Address
                     },
                     ClientSecrets =
                     {
