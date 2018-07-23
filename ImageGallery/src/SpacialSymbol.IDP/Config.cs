@@ -50,7 +50,8 @@ namespace SpacialSymbol.IDP
         {
             return new List<ApiResource>
             {
-                new ApiResource("imagegalleryapi", "Image Gallery Api")
+                new ApiResource("imagegalleryapi", "Image Gallery Api",
+                new List<string>(){ "role"})
             };
         }
 

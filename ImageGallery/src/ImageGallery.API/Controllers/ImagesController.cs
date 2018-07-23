@@ -58,6 +58,7 @@ namespace ImageGallery.API.Controllers
         }
 
         [HttpPost()]
+        [Authorize(Roles = "PayingUser")]
         public IActionResult CreateImage([FromBody] ImageForCreation imageForCreation)
         {
             if (imageForCreation == null)
@@ -96,6 +97,10 @@ namespace ImageGallery.API.Controllers
             // ownerId should be set - can't save image in starter solution, will
             // be fixed during the course
             //imageEntity.OwnerId = ...;
+
+            //set the owner Id on the image entity
+            var ownerId = User.Claims.FirstOrDefault(i => i.Type == "sub").Value;
+            imageEntity.OwnerId = ownerId;
 
             // add and save.  
             _galleryRepository.AddImage(imageEntity);
@@ -141,14 +146,7 @@ namespace ImageGallery.API.Controllers
             if (imageForUpdate == null)
             {
                 return BadRequest();
-            }
-
-            var ownerId = User.Claims.FirstOrDefault(c => c.Type == "sub").Value;
-
-            if(!_galleryRepository.IsImageOwner(id, ownerId))
-            {
-                return StatusCode(403);
-            }
+            }          
 
             if (!ModelState.IsValid)
             {

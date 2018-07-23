@@ -124,6 +124,7 @@ namespace ImageGallery.Client.Controllers
             throw new Exception($"A problem happened while calling the API: {response.ReasonPhrase}");
         }
         
+        [Authorize(Roles ="PayingUser")]
         public IActionResult AddImage()
         {
             return View();
