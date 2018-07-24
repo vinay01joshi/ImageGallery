@@ -26,7 +26,9 @@ namespace SpacialSymbol.IDP
                         new Claim("given_name", "Frank"),
                         new Claim("family_name", "Underwood"),
                         new Claim("address","Main road 1"),
-                        new Claim("role","FreeUser")
+                        new Claim("role","FreeUser"),
+                        new Claim("subscriptionlevel","FreeUser"),
+                        new Claim("country","nl")
                     }
                 },
                 new TestUser
@@ -40,7 +42,9 @@ namespace SpacialSymbol.IDP
                         new Claim("given_name", "Claire"),
                         new Claim("family_name", "Underwood"),
                         new Claim("address" ,"Big Street 2"),
-                        new Claim("role", "PayingUser")
+                        new Claim("role", "PayingUser"),
+                        new Claim("subscriptionlevel","PayingUser"),
+                        new Claim("country","bl")
                     }
                 }
             };
@@ -62,8 +66,18 @@ namespace SpacialSymbol.IDP
                 new IdentityResources.OpenId(),
                 new IdentityResources.Profile(),
                 new IdentityResources.Address(),
-                new IdentityResource("roles","Your role(s)",
-                        new List<string>() { "role" })
+                new IdentityResource(
+                    "roles",
+                    "Your role(s)",
+                    new List<string>() { "role" }),
+                new IdentityResource(
+                    "country",
+                    "the country you're living in",
+                    new List<string>() { "country"}),
+                new IdentityResource(
+                    "subscriptionlevel",
+                    "Your subscription Level",
+                    new List<string>() { "subscriptionlevel"})
             };
         }
 
@@ -90,7 +104,9 @@ namespace SpacialSymbol.IDP
                         IdentityServerConstants.StandardScopes.Profile,
                         IdentityServerConstants.StandardScopes.Address,
                         "roles",
-                        "imagegalleryapi"
+                        "imagegalleryapi",
+                        "country",
+                        "subscriptionlevel"
                     },
                     ClientSecrets =
                     {
