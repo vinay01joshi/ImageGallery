@@ -56,6 +56,9 @@ namespace SpacialSymbol.IDP
             {
                 new ApiResource("imagegalleryapi", "Image Gallery Api",
                 new List<string>(){ "role"})
+                {
+                    ApiSecrets = { new Secret("apisecret".Sha256()) }
+                }
             };
         }
 
@@ -89,6 +92,7 @@ namespace SpacialSymbol.IDP
                 {
                     ClientName = "Image Gallery",
                     ClientId = "imagegalleryclient",
+                    AccessTokenType = AccessTokenType.Reference,
                     //IdentityTokenLifetime = ...
                     //AuthorizationCodeLifetime = ...
                     AccessTokenLifetime = 120, //default is 1hr
