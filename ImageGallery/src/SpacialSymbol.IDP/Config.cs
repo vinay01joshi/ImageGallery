@@ -89,6 +89,9 @@ namespace SpacialSymbol.IDP
                 {
                     ClientName = "Image Gallery",
                     ClientId = "imagegalleryclient",
+                    //IdentityTokenLifetime = ...
+                    //AuthorizationCodeLifetime = ...
+                    AccessTokenLifetime = 120, //default is 1hr
                     AllowedGrantTypes = GrantTypes.Hybrid,
                     RedirectUris = new List<string>()
                     {
