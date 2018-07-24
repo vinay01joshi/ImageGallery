@@ -193,7 +193,8 @@ namespace ImageGallery.Client.Controllers
             await HttpContext.SignOutAsync("oidc");
         }
 
-        [Authorize(Roles = "PayingUser")]
+        //[Authorize(Roles = "PayingUser")]
+        [Authorize(Policy = "CanOrderFrame")]
         public async Task<ActionResult> OrderFrame()
         {
             var discoveryClient = new DiscoveryClient("https://localhost:44326/");

@@ -44,7 +44,7 @@ namespace SpacialSymbol.IDP
                         new Claim("address" ,"Big Street 2"),
                         new Claim("role", "PayingUser"),
                         new Claim("subscriptionlevel","PayingUser"),
-                        new Claim("country","bl")
+                        new Claim("country","be")
                     }
                 }
             };
