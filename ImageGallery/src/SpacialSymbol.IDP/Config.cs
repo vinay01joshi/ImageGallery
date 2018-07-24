@@ -92,6 +92,9 @@ namespace SpacialSymbol.IDP
                     //IdentityTokenLifetime = ...
                     //AuthorizationCodeLifetime = ...
                     AccessTokenLifetime = 120, //default is 1hr
+                    AllowOfflineAccess = true,
+                    //AbsoluteRefreshTokenLifetime = ...
+                    UpdateAccessTokenClaimsOnRefresh = true,
                     AllowedGrantTypes = GrantTypes.Hybrid,
                     RedirectUris = new List<string>()
                     {
